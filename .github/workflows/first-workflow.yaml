@@ -23,4 +23,5 @@ jobs:
     needs: run-shell-command
     steps:
       - name: Final Step
-        run: echo "All previous jobs completed."
+        run: echo "All previous jobs completed successfully!"
+        
