@@ -13,10 +13,3 @@ jobs:
           npm -v
           echo "This is line 1"
           echo "This is line 2"
-          
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Say Hello
-        run: echo "Hello, World!"
