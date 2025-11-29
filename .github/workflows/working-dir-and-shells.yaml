@@ -1,7 +1,7 @@
 name: Working Dirs & Shells
 on: [push]
 jobs:
-  display-wd-info:
+  display-wd-info-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - name: Display working directory & List Files
@@ -13,3 +13,13 @@ jobs:
           echo $GITHUB_WORKSPACE
       - name: List files in working directory
         run: ls -la
+  display-wd-info-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Display working directory & List Files on Windows
+        run: |
+          Get-Location
+          dir -Force
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKSPACE
