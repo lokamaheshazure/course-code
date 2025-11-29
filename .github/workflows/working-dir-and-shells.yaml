@@ -1,5 +1,8 @@
 name: Working Dirs for both Windows and Ubuntu
 on: [push]
+defaults:
+  run:
+    shell: bash
 jobs:
   display-wd-info-ubuntu:
     runs-on: ubuntu-latest
