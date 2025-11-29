@@ -18,6 +18,9 @@ jobs:
         run: ls -la
   display-wd-info-windows:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Display working directory & List Files on Windows
         run: |
