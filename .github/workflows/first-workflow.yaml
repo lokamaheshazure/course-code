@@ -13,3 +13,14 @@ jobs:
           npm -v
           echo "This is line 1"
           echo "This is line 2"
+  parallel-job-macos:
+    runs-on: macos-latest
+    steps:
+      - name: View SW version
+        run: sw_vers
+  dependant-job:
+    runs-on: windows-latest
+    needs: run-shell-command
+    steps:
+      - name: Final Step
+        run: echo "All previous jobs completed."
