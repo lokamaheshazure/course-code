@@ -3,6 +3,7 @@ on: [push]
 defaults:
   run:
     shell: bash
+    working-directory: /home/runner/work/course-code/course-code
 jobs:
   display-wd-info-ubuntu:
     runs-on: ubuntu-latest
