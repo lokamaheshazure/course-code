@@ -1,0 +1,38 @@
+name: Repository Events version 2
+on: 
+    push:
+      branches:
+        - main
+        - "feature/*" # matches any branch that starts with 'feature/'
+        - "feature/**" # matches any branch that starts with 'feature/' including subdirectories
+        - "!feature/feat1" # excludes the 'feature/feat1' branch
+    #  branches-ignore:
+    #    - develop
+      tags:
+        - "v1.*"      # matches any tag that starts with 'v1.'
+        - "release-*" # matches any tag that starts with 'release-'
+        - "!release-draft" # excludes the 'release-draft' tag
+      paths:
+        - 'src/**'        # matches any file in the 'src' directory and its subdirectories
+        - 'docs/*.md'    # matches any markdown file in the 'docs' directory
+        - '!docs/drafts/**' # excludes any file in the 'docs/drafts' directory and its subdirectories
+    pull_request:
+        types: [opened, assigned, synchronize, reopened]
+        branches:
+          - main
+          - "feature/*"
+        paths:
+          - 'src/**'
+          - 'docs/*.md'
+          - '!docs/drafts/**'
+    issues:
+        types: [opened, edited, closed]
+
+jobs:
+  checkout-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
+      - uses: actions/checkout@v3
