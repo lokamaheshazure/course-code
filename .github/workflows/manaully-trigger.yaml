@@ -4,7 +4,7 @@ on:
     inputs:
       example_input:
         description: 'An example input for manual trigger'
-        required: false
+        required: true
         default: 'default value'  
 jobs:
   manual-job:
