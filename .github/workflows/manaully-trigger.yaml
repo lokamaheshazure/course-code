@@ -4,8 +4,27 @@ on:
     inputs:
       example_input:
         description: 'An example input for manual trigger'
+        type: string
         required: true
         default: 'default value'  
+      number_input:
+        description: 'A number input for manual trigger'
+        type: number
+        required: false
+        default: 42
+      option_input:
+        description: 'An option input for manual trigger'
+        type: choice
+        required: false
+        default: 'option1'
+        options:
+          - option1
+          - option2
+          - option3
+      environment_input:
+        description: 'Select environment for the job'
+        type: environment
+        required: false
 jobs:
   manual-job:
     runs-on: ubuntu-latest
@@ -15,3 +34,8 @@ jobs:
             echo "The input value is: ${{ github.event.inputs.example_input }}"
       - name: Checkout Repository
         uses: actions/checkout@v3  
+      - name: Display my Input
+        run: |
+            echo "The number input value is: ${{ github.event.inputs.number_input }}"
+            echo "The option input value is: ${{ github.event.inputs.option_input }}"
+            
