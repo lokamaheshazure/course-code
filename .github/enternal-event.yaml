@@ -1,0 +1,9 @@
+name: External Event Triggered Workflow
+on:
+  repository_dispatch:
+    types: [external-event] 
+jobs:
+  echo-external:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This workflow was triggered by an external event!"
