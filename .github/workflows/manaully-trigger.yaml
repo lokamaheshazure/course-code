@@ -38,4 +38,5 @@ jobs:
         run: |
             echo "The number input value is: ${{ github.event.inputs.number_input }}"
             echo "The option input value is: ${{ github.event.inputs.option_input }}"
-            
+            echo "The number input value is: ${{ github.event.inputs.environment_input }}"
+            echo "The option input value is: ${{ github.event.inputs.example_input }}"
